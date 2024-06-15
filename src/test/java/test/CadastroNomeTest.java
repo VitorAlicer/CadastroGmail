@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.CadastroData;
+import pages.CadastroEmail;
 import pages.CadastroNome;
 
 import java.time.Duration;
@@ -16,6 +17,7 @@ public class CadastroNomeTest {
     static WebDriver driver;
     static CadastroNome cadastroNome;
     static CadastroData cadastroData;
+    static CadastroEmail cadastroEmail;
 
     @Before
     public void setUp() throws Exception {
@@ -31,8 +33,11 @@ public class CadastroNomeTest {
 
         cadastroData = new CadastroData(driver);
 
+        cadastroEmail = new CadastroEmail(driver);
+
         cadastroNome.preencherCampo();
         cadastroData.preencherCampo();
+        cadastroEmail.preencherCampo();
     }
 
     @After
