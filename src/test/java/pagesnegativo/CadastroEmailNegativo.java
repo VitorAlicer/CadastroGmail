@@ -29,4 +29,7 @@ public class CadastroEmailNegativo {
         botaoAvancar.click();
 
     }
+    public String ValidarMensagemEmail() {
+        return driver.findElement(By.xpath("//div[contains(text(), 'Digite um endereço do Gmail')]")).getText();
+    }
 }

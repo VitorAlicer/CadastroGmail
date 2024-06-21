@@ -28,4 +28,8 @@ public class CadastroSenhaNegativo {
         botaoAvancar.click();
 
     }
+
+    public String ValidarMensagemSenha() {
+        return driver.findElement(By.xpath("//span[contains(text(), 'Digite uma senha')]")).getText();
+    }
 }

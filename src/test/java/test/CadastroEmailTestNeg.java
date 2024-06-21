@@ -11,6 +11,8 @@ import pages.CadastroNome;
 import pages.CadastroSenha;
 import pagesnegativo.CadastroEmailNegativo;
 
+import static org.junit.Assert.assertEquals;
+
 public class CadastroEmailTestNeg {
     static WebDriver driver;
     static CadastroNome cadastroNome;
@@ -20,10 +22,6 @@ public class CadastroEmailTestNeg {
 
     @Before
     public void setUp() throws Exception {
-    }
-
-    @Test
-    public void test(){
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-win64\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://accounts.google.com/signup");
@@ -33,11 +31,15 @@ public class CadastroEmailTestNeg {
         cadastroData = new CadastroData(driver);
 
         cadastroEmailNegativo = new CadastroEmailNegativo(driver);
+    }
 
+    @Test
+    public void test(){
 
         cadastroNome.preencherCampo();
         cadastroData.preencherCampo();
         cadastroEmailNegativo.preencherCampo();
+        assertEquals(cadastroEmailNegativo.ValidarMensagemEmail(), "Digite um endereço do Gmail");
 
     }
 

@@ -22,4 +22,7 @@ public class CadastroNomeNegativo {
         botaoAvancar.click();
 
     }
+    public String ValidarMensagemNome() {
+     return driver.findElement(By.xpath("//span[contains(text(), 'Digite o nome')]")).getText();
+    }
 }

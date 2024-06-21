@@ -36,6 +36,16 @@ public class CadastroDataNegativo {
         WebElement botaoAvancar = driver.findElement(By.xpath("//span[contains(text(),'Avançar')]"));
         botaoAvancar.click();
 
-
     }
+
+    public String ValidarMensagemData() {
+        return driver.findElement(By.xpath("//div[contains(text(), 'Insira uma data de nascimento completa')]")).getText();
+    }
+
+    public String ValidarMensagemGenero() {
+
+
+        return driver.findElement(By.xpath("//div[contains(text(), 'Selecione seu gênero')]")).getText();
+    }
+
 }

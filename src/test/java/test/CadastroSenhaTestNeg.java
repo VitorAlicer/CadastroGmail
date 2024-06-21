@@ -11,6 +11,8 @@ import pages.CadastroNome;
 import pages.CadastroSenha;
 import pagesnegativo.CadastroSenhaNegativo;
 
+import static org.junit.Assert.assertEquals;
+
 public class CadastroSenhaTestNeg {
     static WebDriver driver;
     static CadastroNome cadastroNome;
@@ -20,10 +22,6 @@ public class CadastroSenhaTestNeg {
 
     @Before
     public void setUp() throws Exception {
-    }
-
-    @Test
-    public void test(){
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-win64\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://accounts.google.com/signup");
@@ -35,11 +33,15 @@ public class CadastroSenhaTestNeg {
         cadastroEmail = new CadastroEmail(driver);
 
         cadastroSenhaNegativo = new CadastroSenhaNegativo(driver);
+    }
 
+    @Test
+    public void test(){
         cadastroNome.preencherCampo();
         cadastroData.preencherCampo();
         cadastroEmail.preencherCampo();
         cadastroSenhaNegativo.preencherCampo();
+        assertEquals(cadastroSenhaNegativo.ValidarMensagemSenha(), "Digite uma senha");
     }
 
     @After
